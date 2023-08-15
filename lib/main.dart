@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'Home.dart';
+import 'Post.dart';
+import 'Chat.dart';
+import 'Settings.dart';
 
 void main() => runApp(MyApp());
 
@@ -10,81 +14,66 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'FencingApp',
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      home: MainPage(),
     );
   }
 }
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class MainPage extends StatefulWidget {
+  const MainPage({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<MainPage> createState() => _MainPageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _MainPageState extends State<MainPage> {
+  int selectedIndex = 0;
+  final pages = [Home(), Post(), Chat(), Settings()];
+
+  void onItemTapped(int index) {
+    setState(() {
+      selectedIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      initialIndex: 1,
-      length: 4,
-      child: Scaffold(
-        appBar: AppBar(
+    return Scaffold(
+      body: SafeArea(
+        child: pages.elementAt(selectedIndex),
+      ),
+      bottomNavigationBar: Container(
+        decoration: BoxDecoration(
+            border: Border(top: BorderSide(color: Colors.grey, width: 0.65))),
+        child: BottomNavigationBar(
           backgroundColor: Colors.white,
           elevation: 0.0,
-          shape: Border(bottom: BorderSide(color: Colors.grey, width: 1.0)),
-          iconTheme: IconThemeData(color: Colors.black),
-          actions: [
-            IconButton(
-              icon: Icon(Icons.search),
-              onPressed: () {},
+          type: BottomNavigationBarType.fixed,
+          items: [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: '홈',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.edit),
+              label: '게시글',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.chat_bubble),
+              label: '채팅',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.more_horiz),
+              label: '더보기',
             ),
           ],
-        ),
-        body: TabBarView(
-          children: [
-            Center(child: Text('Home Page')),
-            Center(child: Text('Edit Page')),
-            Center(child: Text('Chatting Page')),
-            Center(child: Text('Profile Page'))
-          ],
-        ),
-        bottomNavigationBar: Container(
-          color: Colors.white,
-          height: 80,
-          child: TabBar(
-            tabs: [
-              Tab(
-                icon: Icon(
-                  Icons.home,
-                  size: 25,
-                ),
-                text: '홈',
-              ),
-              Tab(
-                icon: Icon(Icons.edit),
-                text: '글',
-              ),
-              Tab(
-                icon: Icon(
-                  Icons.chat_bubble,
-                  size: 21,
-                ),
-                text: '채팅',
-              ),
-              Tab(
-                icon: Icon(
-                  Icons.person,
-                  size: 27,
-                ),
-                text: '프로필',
-              ),
-            ],
-            labelColor: Colors.redAccent,
-            labelStyle: TextStyle(fontSize: 14),
-            indicatorColor: Colors.redAccent,
-            unselectedLabelColor: Colors.grey[600],
-          ),
+          currentIndex: selectedIndex,
+          selectedItemColor: Colors.blue[500],
+          onTap: onItemTapped,
+          iconSize: 30,
+          selectedFontSize: 15,
+          unselectedFontSize: 15,
+          unselectedItemColor: Colors.grey[500],
         ),
       ),
     );
