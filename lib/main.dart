@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'Home.dart';
 import 'Post.dart';
-import 'Chat.dart';
+import 'Message.dart';
 import 'Settings.dart';
 
 void main() => runApp(MyApp());
@@ -28,7 +28,7 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   int selectedIndex = 0;
-  final pages = [Home(), Post(), Chat(), Settings()];
+  final pages = [Home(), Post(), Message(), Settings()];
 
   void onItemTapped(int index) {
     setState(() {
@@ -59,8 +59,8 @@ class _MainPageState extends State<MainPage> {
               label: '게시글',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.chat_bubble),
-              label: '채팅',
+              icon: Icon(Icons.markunread),
+              label: '쪽지',
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.more_horiz),
