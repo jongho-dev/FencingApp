@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "423740453518",
+    "project_id": "fenmeeting-app-8a3e0",
+    "storage_bucket": "fenmeeting-app-8a3e0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:423740453518:android:64a7a922e2459f3c6d4fdf",
+        "android_client_info": {
+          "package_name": "com.example.fencing_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "423740453518-qnscka7e2lr83pso669dqphfh3iit6jc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDG2vXDlPjsfKJs-Aan0m_7gs3UyIvJMxs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "423740453518-qnscka7e2lr83pso669dqphfh3iit6jc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
