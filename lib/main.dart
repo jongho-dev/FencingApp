@@ -1,6 +1,7 @@
 import 'package:fencing_app/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'Login.dart';
 import 'Home.dart';
 import 'Post.dart';
 import 'Message.dart';
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'FencingApp',
       debugShowCheckedModeBanner: false,
-      home: MainPage(),
+      home: Login(),
     );
   }
 }
