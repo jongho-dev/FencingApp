@@ -1,11 +1,12 @@
 import 'package:fencing_app/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'Login.dart';
-import 'Home.dart';
-import 'Post.dart';
-import 'Message.dart';
-import 'Settings.dart';
+import 'pages/login.dart';
+import 'pages/signup.dart';
+import 'pages/home.dart';
+import 'pages/post.dart';
+import 'pages/message.dart';
+import 'pages/settings.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'FencingApp',
       debugShowCheckedModeBanner: false,
-      home: Login(),
+      home: LoginPage(),
     );
   }
 }
