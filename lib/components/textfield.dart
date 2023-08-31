@@ -2,16 +2,24 @@ import 'package:flutter/material.dart';
 
 class SignupTextfield extends StatelessWidget {
   SignupTextfield(
-      {required this.label, required this.isPW, required this.onPressed});
+      {required this.label,
+      required this.isPW,
+      required this.controller,
+      required this.onPressed,
+      required this.keyboardtype});
 
   final String label;
   final bool isPW;
+  final TextEditingController controller;
   final VoidCallback onPressed;
+  final TextInputType keyboardtype;
 
   @override
   Widget build(BuildContext context) {
     return TextField(
         obscureText: isPW,
+        controller: controller,
+        keyboardType: keyboardtype,
         style: TextStyle(fontSize: 17.0),
         decoration: InputDecoration(
             isDense: true,

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
-import '../components/LoginButton.dart';
-import './signup.dart';
+// 페이지 IMPORT
+import 'loginbyemail.dart';
+// 컴포넌트
+import '../../components/LoginButton.dart';
 
+// 라우트 FADE ANIMATION
 class FadeRoute extends PageRouteBuilder {
   final Widget page;
   FadeRoute({required this.page})
@@ -25,6 +28,7 @@ class FadeRoute extends PageRouteBuilder {
         );
 }
 
+// 로그인 페이지 위젯
 class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -33,6 +37,7 @@ class LoginPage extends StatelessWidget {
     );
   }
 
+  // 버튼 UI
   Widget _buildButton(BuildContext context) {
     return Padding(
       padding: EdgeInsets.all(16.0),
@@ -60,15 +65,12 @@ class LoginPage extends StatelessWidget {
             height: 10.0,
           ),
           LoginButton(
-            image: Icon(
-              Icons.mail,
-              size: 30.0,
-            ),
+            image: Icon(Icons.mail, size: 30.0),
             text: Text('이메일로 시작하기',
                 style: TextStyle(color: Colors.white, fontSize: 17.0)),
             color: Colors.green,
             onPressed: () {
-              Navigator.push(context, FadeRoute(page: SignUp()));
+              Navigator.push(context, FadeRoute(page: LoginByEmailPage()));
             },
           ),
         ],

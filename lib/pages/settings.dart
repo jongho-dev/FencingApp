@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class Settings extends StatelessWidget {
+class SettingsPage extends StatelessWidget {
   final tablist = [
     {
       "title": "도움말",

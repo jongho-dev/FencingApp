@@ -1,13 +1,15 @@
-import 'package:fencing_app/firebase_options.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'pages/login.dart';
-import 'pages/signup.dart';
+// 파이어베이스 패키지
+import './firebase_options.dart';
+import 'package:firebase_core/firebase_core.dart';
+// 페이지 IMPORT
+import 'pages/login/login.dart';
 import 'pages/home.dart';
 import 'pages/post.dart';
 import 'pages/message.dart';
 import 'pages/settings.dart';
 
+// 메인 함수
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
@@ -17,8 +19,6 @@ void main() async {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -29,16 +29,15 @@ class MyApp extends StatelessWidget {
   }
 }
 
+// 메인 페이지 위젯
 class MainPage extends StatefulWidget {
-  const MainPage({super.key});
-
   @override
   State<MainPage> createState() => _MainPageState();
 }
 
 class _MainPageState extends State<MainPage> {
   int selectedIndex = 0;
-  final pages = [Home(), Post(), Message(), Settings()];
+  final pages = [HomePage(), PostPage(), MessagePage(), SettingsPage()];
 
   void onItemTapped(int index) {
     setState(() {
@@ -54,7 +53,10 @@ class _MainPageState extends State<MainPage> {
       ),
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
-            border: Border(top: BorderSide(color: Colors.grey, width: 0.65))),
+          border: Border(
+            top: BorderSide(color: Colors.grey, width: 0.65),
+          ),
+        ),
         child: BottomNavigationBar(
           backgroundColor: Colors.white,
           elevation: 0.0,
