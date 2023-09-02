@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 // 파이어베이스 패키지
 import './firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 // 페이지 IMPORT
 import 'pages/login/login.dart';
 import 'pages/home.dart';
@@ -22,10 +23,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'FencingApp',
-      debugShowCheckedModeBanner: false,
-      home: LoginPage(),
-    );
+        title: 'FencingApp',
+        debugShowCheckedModeBanner: false,
+        home: StreamBuilder(
+            stream: FirebaseAuth.instance.authStateChanges(),
+            builder: (context, AsyncSnapshot<User?> user) {
+              if (user.hasData) {
+                return MainPage();
+              } else {
+                return LoginPage();
+              }
+            }));
   }
 }
 

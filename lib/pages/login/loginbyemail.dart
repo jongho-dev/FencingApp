@@ -120,7 +120,12 @@ class _LoginByEmailPageState extends State<LoginByEmailPage> {
                       );
 
                       if (newUser.user != null) {
-                        Navigator.push(context, FadeRoute(page: MainPage()));
+                        // Navigator.push(context, FadeRoute(page: MainPage()));
+                        Navigator.pushAndRemoveUntil(
+                            context,
+                            MaterialPageRoute(
+                                builder: (BuildContext context) => MainPage()),
+                            (route) => false);
                       }
                     } catch (e) {
                       ScaffoldMessenger.of(context).showSnackBar(

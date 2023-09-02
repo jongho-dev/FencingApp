@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class SettingsPage extends StatelessWidget {
   final tablist = [
@@ -15,9 +16,11 @@ class SettingsPage extends StatelessWidget {
       "title": "결제 내역",
     },
     {
-      "title": "알림 설정",
+      "title": "로그아웃",
     }
   ];
+
+  final _authentication = FirebaseAuth.instance;
 
   @override
   Widget build(BuildContext context) {
@@ -38,15 +41,21 @@ class SettingsPage extends StatelessWidget {
           itemCount: tablist.length,
           itemBuilder: (context, index) {
             var name = tablist[index]["title"];
-            return Container(
-              height: 60,
-              alignment: Alignment.centerLeft,
-              color: Colors.white,
-              child: Padding(
-                padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
-                child: Text('$name'),
-              ),
-            );
+            return GestureDetector(
+                onTap: () {
+                  if (name == '로그아웃') {
+                    _authentication.signOut();
+                  }
+                },
+                child: Container(
+                  height: 60,
+                  alignment: Alignment.centerLeft,
+                  color: Colors.white,
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
+                    child: Text('$name'),
+                  ),
+                ));
           },
         ));
   }
