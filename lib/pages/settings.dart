@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'login/login.dart';
 
 class SettingsPage extends StatelessWidget {
   final tablist = [
@@ -44,7 +45,10 @@ class SettingsPage extends StatelessWidget {
             return GestureDetector(
                 onTap: () {
                   if (name == '로그아웃') {
+                    print('로그아웃');
                     _authentication.signOut();
+                    Navigator.of(context).pushReplacement(
+                        MaterialPageRoute(builder: (context) => LoginPage()));
                   }
                 },
                 child: Container(
