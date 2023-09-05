@@ -118,6 +118,8 @@ class _SignUpPageState extends State<SignUpPage> {
                         email: _emailcontroller.text,
                         password: _pwcontroller.text,
                       );
+                      // FirebaseAuth.instance.currentUser!
+                      //     .sendEmailVerification();
 
                       if (newUser.user != null) {
                         Navigator.push(

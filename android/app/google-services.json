@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "423740453518",
-    "project_id": "fenmeeting-app-8a3e0",
-    "storage_bucket": "fenmeeting-app-8a3e0.appspot.com"
+    "project_number": "38263915997",
+    "project_id": "fenmeeting-app-ad4fa",
+    "storage_bucket": "fenmeeting-app-ad4fa.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:423740453518:android:64a7a922e2459f3c6d4fdf",
+        "mobilesdk_app_id": "1:38263915997:android:587fde7ea0e7e21a7a2234",
         "android_client_info": {
           "package_name": "com.example.fencing_app"
         }
       },
       "oauth_client": [
         {
-          "client_id": "423740453518-qnscka7e2lr83pso669dqphfh3iit6jc.apps.googleusercontent.com",
+          "client_id": "38263915997-btm74nitpnfo4kejpnps023kap4annja.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDG2vXDlPjsfKJs-Aan0m_7gs3UyIvJMxs"
+          "current_key": "AIzaSyD1EsS8uAKQsgH2ZxVXCoGhHYtZDsQYEJI"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "423740453518-qnscka7e2lr83pso669dqphfh3iit6jc.apps.googleusercontent.com",
+              "client_id": "38263915997-btm74nitpnfo4kejpnps023kap4annja.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

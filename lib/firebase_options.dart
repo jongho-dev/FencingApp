@@ -44,40 +44,40 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyB26RgDkuSl5rESmuID5uFFUMJtbrAgmj0',
-    appId: '1:423740453518:web:807b56f42632674e6d4fdf',
-    messagingSenderId: '423740453518',
-    projectId: 'fenmeeting-app-8a3e0',
-    authDomain: 'fenmeeting-app-8a3e0.firebaseapp.com',
-    storageBucket: 'fenmeeting-app-8a3e0.appspot.com',
-    measurementId: 'G-CC7QKERJ8N',
+    apiKey: 'AIzaSyBqvw_HCS_DwubAKjq-8-cquWpIHSDh7eI',
+    appId: '1:38263915997:web:9c2d50b5768400d47a2234',
+    messagingSenderId: '38263915997',
+    projectId: 'fenmeeting-app-ad4fa',
+    authDomain: 'fenmeeting-app-ad4fa.firebaseapp.com',
+    storageBucket: 'fenmeeting-app-ad4fa.appspot.com',
+    measurementId: 'G-EGXEXNMD2T',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyDG2vXDlPjsfKJs-Aan0m_7gs3UyIvJMxs',
-    appId: '1:423740453518:android:64a7a922e2459f3c6d4fdf',
-    messagingSenderId: '423740453518',
-    projectId: 'fenmeeting-app-8a3e0',
-    storageBucket: 'fenmeeting-app-8a3e0.appspot.com',
+    apiKey: 'AIzaSyD1EsS8uAKQsgH2ZxVXCoGhHYtZDsQYEJI',
+    appId: '1:38263915997:android:587fde7ea0e7e21a7a2234',
+    messagingSenderId: '38263915997',
+    projectId: 'fenmeeting-app-ad4fa',
+    storageBucket: 'fenmeeting-app-ad4fa.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyBd9fRC-ndRnfDI_FgN6m8a3cvtJQaXQCY',
-    appId: '1:423740453518:ios:4810ffc3f755bef16d4fdf',
-    messagingSenderId: '423740453518',
-    projectId: 'fenmeeting-app-8a3e0',
-    storageBucket: 'fenmeeting-app-8a3e0.appspot.com',
-    iosClientId: '423740453518-fjo0h9nni1s9r8ocrrirolsfn94nol03.apps.googleusercontent.com',
+    apiKey: 'AIzaSyBxnBopwWd25D4yC4dgsPGoWokbV9gejz0',
+    appId: '1:38263915997:ios:510ae68603baaa3f7a2234',
+    messagingSenderId: '38263915997',
+    projectId: 'fenmeeting-app-ad4fa',
+    storageBucket: 'fenmeeting-app-ad4fa.appspot.com',
+    iosClientId: '38263915997-9u83k5b8ffiag19pm6d4i82434t8lmb3.apps.googleusercontent.com',
     iosBundleId: 'com.example.fencingApp',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyBd9fRC-ndRnfDI_FgN6m8a3cvtJQaXQCY',
-    appId: '1:423740453518:ios:3d235aa8cd41547e6d4fdf',
-    messagingSenderId: '423740453518',
-    projectId: 'fenmeeting-app-8a3e0',
-    storageBucket: 'fenmeeting-app-8a3e0.appspot.com',
-    iosClientId: '423740453518-0dthc9emv3bqvi1oep3bkqkrsc2seens.apps.googleusercontent.com',
+    apiKey: 'AIzaSyBxnBopwWd25D4yC4dgsPGoWokbV9gejz0',
+    appId: '1:38263915997:ios:642ea7ad340ae9587a2234',
+    messagingSenderId: '38263915997',
+    projectId: 'fenmeeting-app-ad4fa',
+    storageBucket: 'fenmeeting-app-ad4fa.appspot.com',
+    iosClientId: '38263915997-19asc9fncs59tge0dupk4s0hrqu0m2us.apps.googleusercontent.com',
     iosBundleId: 'com.example.fencingApp.RunnerTests',
   );
 }

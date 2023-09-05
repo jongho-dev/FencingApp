@@ -45,7 +45,6 @@ class SettingsPage extends StatelessWidget {
             return GestureDetector(
                 onTap: () {
                   if (name == '로그아웃') {
-                    print('로그아웃');
                     _authentication.signOut();
                     Navigator.of(context).pushReplacement(
                         MaterialPageRoute(builder: (context) => LoginPage()));
