@@ -1,8 +1,10 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 // 페이지 IMPORT
 import 'loginbyemail.dart';
 // 컴포넌트
 import '../../components/LoginButton.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 // 라우트 FADE ANIMATION
 class FadeRoute extends PageRouteBuilder {
@@ -30,6 +32,24 @@ class FadeRoute extends PageRouteBuilder {
 
 // 로그인 페이지 위젯
 class LoginPage extends StatelessWidget {
+  Future<UserCredential> signInWithGoogle() async {
+    // Trigger the authentication flow
+    final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+
+    // Obtain the auth details from the request
+    final GoogleSignInAuthentication? googleAuth =
+        await googleUser?.authentication;
+
+    // Create a new credential
+    final credential = GoogleAuthProvider.credential(
+      accessToken: googleAuth?.accessToken,
+      idToken: googleAuth?.idToken,
+    );
+
+    // Once signed in, return the UserCredential
+    return await FirebaseAuth.instance.signInWithCredential(credential);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,7 +69,7 @@ class LoginPage extends StatelessWidget {
             text: Text('구글로 시작하기',
                 style: TextStyle(color: Colors.black87, fontSize: 17.0)),
             color: Colors.white,
-            onPressed: () {},
+            onPressed: signInWithGoogle,
           ),
           SizedBox(
             height: 10.0,
