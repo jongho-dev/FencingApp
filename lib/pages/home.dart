@@ -57,7 +57,7 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
       body: StreamBuilder(
-        stream: product.snapshots(),
+        stream: product.orderBy('time', descending: true).snapshots(),
         builder: (BuildContext context,
             AsyncSnapshot<QuerySnapshot> streamSnapshot) {
           print(streamSnapshot.hasError);
@@ -69,7 +69,7 @@ class _HomePageState extends State<HomePage> {
                     streamSnapshot.data!.docs[index];
                 return Card(
                   child: ListTile(
-                    title: Text(documentSnapshot['content']),
+                    title: Text(documentSnapshot['title']),
                     subtitle: Text(documentSnapshot['writer']),
                   ),
                 );
