@@ -26,14 +26,16 @@ class _WritePostState extends State<WritePost> {
         FocusScope.of(context).unfocus();
       },
       child: Scaffold(
+        backgroundColor: Colors.white,
         appBar: AppBar(
+          elevation: 0.0,
+          shape: Border(bottom: BorderSide(color: Colors.grey, width: 1.0)),
           title: Center(
             child: Text(
               '게시물 작성',
               style: TextStyle(color: Colors.black),
             ),
           ),
-          elevation: 0.0,
           iconTheme: IconThemeData(color: Colors.black),
           backgroundColor: Colors.white,
           actions: [
@@ -54,25 +56,47 @@ class _WritePostState extends State<WritePost> {
             )
           ],
         ),
-        body: Column(children: [
-          TextField(
-            controller: _titlecontroller,
-            decoration: InputDecoration(
-              hintText: "제목",
-              enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.red, width: 1.0)),
+        body: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Column(children: [
+            TextField(
+              controller: _titlecontroller,
+              decoration: InputDecoration(
+                hintText: "제목",
+                hintStyle: TextStyle(fontSize: 18),
+                border: InputBorder.none,
+                enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                        color: Colors.white.withOpacity(0.0), width: 1.0)),
+                focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                        color: Colors.white.withOpacity(0.0), width: 1.0)),
+              ),
             ),
-          ),
-          TextField(
-            controller: _contentcontroller,
-            maxLines: null,
-            decoration: InputDecoration(
-              hintText: "내용",
-              enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.red, width: 1.0)),
+            Container(
+              height: 1.0,
+              decoration: BoxDecoration(
+                  color: Colors.white,
+                  border: Border(
+                      bottom: BorderSide(color: Colors.grey, width: 1.0))),
             ),
-          ),
-        ]),
+            TextField(
+              controller: _contentcontroller,
+              maxLines: null,
+              decoration: InputDecoration(
+                hintText: "내용",
+                hintStyle: TextStyle(fontSize: 18),
+                border: InputBorder.none,
+                enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                        color: Colors.white.withOpacity(0.0), width: 1.0)),
+                focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                        color: Colors.white.withOpacity(0.0), width: 1.0)),
+              ),
+            ),
+          ]),
+        ),
       ),
     );
   }
