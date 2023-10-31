@@ -40,7 +40,10 @@ class _WritePostState extends State<WritePost> {
           backgroundColor: Colors.white,
           actions: [
             TextButton(
-              child: Text('등록'),
+              child: Text(
+                '등록',
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
               onPressed: () {
                 final userCollectionReference =
                     FirebaseFirestore.instance.collection('posts');
@@ -57,13 +60,13 @@ class _WritePostState extends State<WritePost> {
           ],
         ),
         body: Padding(
-          padding: const EdgeInsets.all(10.0),
+          padding: const EdgeInsets.fromLTRB(10.0, 4.0, 10.0, 10.0),
           child: Column(children: [
             TextField(
               controller: _titlecontroller,
               decoration: InputDecoration(
                 hintText: "제목",
-                hintStyle: TextStyle(fontSize: 18),
+                hintStyle: TextStyle(fontSize: 17),
                 border: InputBorder.none,
                 enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(
@@ -78,14 +81,17 @@ class _WritePostState extends State<WritePost> {
               decoration: BoxDecoration(
                   color: Colors.white,
                   border: Border(
-                      bottom: BorderSide(color: Colors.grey, width: 1.0))),
+                      bottom: BorderSide(
+                          color: Color.fromRGBO(209, 209, 209, 1),
+                          width: 1.0))),
             ),
+            SizedBox(height: 2.0),
             TextField(
               controller: _contentcontroller,
               maxLines: null,
               decoration: InputDecoration(
                 hintText: "내용",
-                hintStyle: TextStyle(fontSize: 18),
+                hintStyle: TextStyle(fontSize: 17),
                 border: InputBorder.none,
                 enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(

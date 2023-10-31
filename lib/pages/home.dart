@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import './writepost.dart';
+import './detailpost.dart';
 
 class FadeRoute extends PageRouteBuilder {
   final Widget page;
@@ -39,6 +40,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text(
           "${user?.email}",
@@ -67,10 +69,14 @@ class _HomePageState extends State<HomePage> {
               itemBuilder: (context, index) {
                 final DocumentSnapshot documentSnapshot =
                     streamSnapshot.data!.docs[index];
-                return Card(
-                  child: ListTile(
-                    title: Text(documentSnapshot['title']),
-                    subtitle: Text(documentSnapshot['writer']),
+                return GestureDetector(
+                  onTap: () =>
+                      {Navigator.push(context, FadeRoute(page: DetailPost()))},
+                  child: Card(
+                    child: ListTile(
+                      title: Text(documentSnapshot['title']),
+                      subtitle: Text(documentSnapshot['writer']),
+                    ),
                   ),
                 );
               },
