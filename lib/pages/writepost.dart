@@ -1,7 +1,10 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+// 파이어베이스 패키지
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/rendering.dart';
 
+// 글쓰기 페이지 위젯
 class WritePost extends StatefulWidget {
   @override
   State<WritePost> createState() => _WritePostState();
@@ -12,6 +15,9 @@ class _WritePostState extends State<WritePost> {
   // 텍스트필드 컨트롤
   TextEditingController _titlecontroller = TextEditingController();
   TextEditingController _contentcontroller = TextEditingController();
+  bool isTitleExist = false;
+  bool isContentExist = false;
+  bool isBtnAble = false;
 
   @override
   void dispose() {
@@ -28,6 +34,7 @@ class _WritePostState extends State<WritePost> {
       child: Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
+          backgroundColor: Colors.white,
           elevation: 0.0,
           shape: Border(bottom: BorderSide(color: Colors.grey, width: 1.0)),
           title: Center(
@@ -37,24 +44,28 @@ class _WritePostState extends State<WritePost> {
             ),
           ),
           iconTheme: IconThemeData(color: Colors.black),
-          backgroundColor: Colors.white,
           actions: [
             TextButton(
-              child: Text(
-                '등록',
-                style: TextStyle(fontWeight: FontWeight.bold),
-              ),
+              child: Text('등록',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: (isBtnAble)
+                        ? Colors.blue
+                        : Color.fromARGB(255, 166, 215, 255),
+                  )),
               onPressed: () {
-                final userCollectionReference =
-                    FirebaseFirestore.instance.collection('posts');
-                userCollectionReference.doc().set({
-                  'writer': user!.email,
-                  'title': _titlecontroller.text,
-                  'content': _contentcontroller.text,
-                  'time': Timestamp.now()
-                });
-
-                Navigator.pop(context);
+                if (_titlecontroller.text.length > 0 &&
+                    _contentcontroller.text.length > 0) {
+                  final userCollectionReference =
+                      FirebaseFirestore.instance.collection('posts');
+                  userCollectionReference.doc().set({
+                    'writer': user!.email,
+                    'title': _titlecontroller.text,
+                    'content': _contentcontroller.text,
+                    'time': Timestamp.now()
+                  });
+                  Navigator.pop(context);
+                }
               },
             )
           ],
@@ -64,6 +75,32 @@ class _WritePostState extends State<WritePost> {
           child: Column(children: [
             TextField(
               controller: _titlecontroller,
+              onChanged: (value) => {
+                if (value.length == 0)
+                  {
+                    setState(() {
+                      isTitleExist = false;
+                    })
+                  }
+                else
+                  {
+                    setState(() {
+                      isTitleExist = true;
+                    })
+                  },
+                if (isTitleExist && isContentExist)
+                  {
+                    setState(() {
+                      isBtnAble = true;
+                    })
+                  }
+                else
+                  {
+                    setState(() {
+                      isBtnAble = false;
+                    })
+                  }
+              },
               decoration: InputDecoration(
                 hintText: "제목",
                 hintStyle: TextStyle(fontSize: 17),
@@ -89,6 +126,32 @@ class _WritePostState extends State<WritePost> {
             TextField(
               controller: _contentcontroller,
               maxLines: null,
+              onChanged: (value) => {
+                if (value.length == 0)
+                  {
+                    setState(() {
+                      isContentExist = false;
+                    })
+                  }
+                else
+                  {
+                    setState(() {
+                      isContentExist = true;
+                    })
+                  },
+                if (isTitleExist && isContentExist)
+                  {
+                    setState(() {
+                      isBtnAble = true;
+                    })
+                  }
+                else
+                  {
+                    setState(() {
+                      isBtnAble = false;
+                    })
+                  }
+              },
               decoration: InputDecoration(
                 hintText: "내용",
                 hintStyle: TextStyle(fontSize: 17),
